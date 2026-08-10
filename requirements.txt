@@ -1,0 +1,19 @@
+# Herramientas base
+numpy
+pandas
+matplotlib
+opencv-python
+
+# Deep Learning (ajustar la versión de torch según CUDA si aplica)
+torch
+torchvision
+
+# Data Augmentation (muy útil para simular oclusión y blur)
+albumentations
+
+# Cuadernos interactivos
+jupyterlab
+ipykernel
+
+# Tracking y métricas (librerías que podremos agregar a futuro)
+# filterpy (para Kalman Filters si implementamos SORT/DeepSORT custom)
