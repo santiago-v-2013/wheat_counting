@@ -18,7 +18,7 @@ timm
 numpy<2.0.0
 pandas
 matplotlib
-opencv-python
+opencv-python<5.0.0
 
 # Cuadernos interactivos
 jupyterlab
