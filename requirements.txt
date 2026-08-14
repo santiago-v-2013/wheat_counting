@@ -6,9 +6,9 @@ pandas==3.0.5
 matplotlib==3.11.1
 opencv-python==5.0.0.93
 
-# Deep Learning (fijados para CUDA 12.1 y compatibilidad local)
-torch==2.13.0
-torchvision==0.28.0
+# Deep Learning (fijados para CUDA 12.0/11.8)
+torch==2.7.1+cu118
+torchvision
 
 # Data Augmentation
 albumentations==2.0.8
