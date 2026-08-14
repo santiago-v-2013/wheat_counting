@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Este script ejecuta entrenamientos completos iterando sobre familias de modelos
-# Ideal para clústeres Ubuntu. Los logs de salida se guardan en full_training.log
+# Ideal para clústeres Ubuntu. Los logs de salida se guardan en logs/full_training.log
 
 echo "=========================================================="
 echo "    INICIANDO BARRIDO DE MODELOS EN CLÚSTER (UBUNTU)      "
 echo "=========================================================="
 echo "Asegúrate de ejecutar esto dentro de tmux o usando nohup si vas a cerrar la terminal."
-echo "Ejemplo: nohup bash pipelines/run_full_training.sh > full_training.log 2>&1 &"
+echo "Ejemplo: nohup bash pipelines/run_full_training.sh > logs/full_training.log 2>&1 &"
 echo ""
 
 # Activar entorno (modifica si tu entorno en el cluster tiene otro nombre/ruta)
