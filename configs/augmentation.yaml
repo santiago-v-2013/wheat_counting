@@ -1,0 +1,53 @@
+# Configuración para Data Augmentation (Orientado a Robótica/Video)
+# Archivo: configs/augmentation.yaml
+
+image_size:
+  height: 1024
+  width: 1024 
+
+transformations:
+  # 1. Simulación de movimiento del robot/cámara (Crucial para Tracking en video)
+  motion_blur:
+    apply: true
+    blur_limit: [3, 7]  # Tamaño del kernel (qué tan fuerte es el barrido)
+    p: 0.25             # Probabilidad de aplicarlo reducida al 25%
+    
+  gaussian_blur:
+    apply: true
+    blur_limit: [3, 7]
+    p: 0.25
+
+  # 2. Simulación de oclusiones (Hojas, otras espigas tapando)
+  coarse_dropout:
+    apply: true
+    max_holes: 8
+    max_height: 64
+    max_width: 64
+    min_holes: 1
+    min_height: 16
+    min_width: 16
+    fill_value: 0
+    p: 0.25
+
+  # 3. Robustez ante clima e iluminación (Exteriores)
+  random_brightness_contrast:
+    apply: true
+    brightness_limit: 0.2
+    contrast_limit: 0.2
+    p: 0.25
+
+  random_shadow:
+    apply: true
+    num_shadows_lower: 1
+    num_shadows_upper: 2
+    shadow_dimension: 5
+    p: 0.25
+
+  # 4. Cambios geométricos espaciales (Ayuda a la generalización)
+  horizontal_flip:
+    apply: true
+    p: 0.25
+    
+  vertical_flip:
+    apply: true
+    p: 0.25

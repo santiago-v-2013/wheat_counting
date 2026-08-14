@@ -6,8 +6,10 @@ data/*
 !data/processed/.gitkeep
 
 # Pesos y modelos entrenados
-weights/*
-!weights/.gitkeep
+models/*
+!models/.gitkeep
+*.pth
+*.pt
 
 # Logs
 logs/*

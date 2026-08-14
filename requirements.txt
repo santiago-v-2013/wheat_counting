@@ -11,9 +11,19 @@ torchvision
 # Data Augmentation (muy útil para simular oclusión y blur)
 albumentations
 
+# YOLO / Object Detection Framework
+ultralytics
+
 # Cuadernos interactivos
 jupyterlab
 ipykernel
 
-# Tracking y métricas (librerías que podremos agregar a futuro)
-# filterpy (para Kalman Filters si implementamos SORT/DeepSORT custom)
+# Tracking y utilidades
+pycocotools
+torchmetrics
+pyyaml
+tqdm
+
+# HuggingFace (Modelos Transformers como DETR, YOLOS)
+transformers
+timm

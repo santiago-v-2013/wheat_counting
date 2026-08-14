@@ -1,0 +1,21 @@
+# configs/train_faster_rcnn.yaml
+# Configuración Principal para Entrenamiento Nativo (PyTorch)
+
+# Definición del Modelo (Nombres exactos de torchvision.models.detection)
+model: 'fasterrcnn_resnet50_fpn'
+
+# Ruta de la configuración de datos (donde están las rutas e imágenes)
+dataset_cfg: 'configs/dataset_coco.yaml'
+
+# Hiperparámetros de Entrenamiento
+epochs: 100
+batch: 16          # Aumentado para clúster
+workers: 8         # Habilitado multiprocessing para Ubuntu
+device: 'cuda:0'   # o 'cpu'
+patience: 15       # Early Stopping: Detener si mAP no mejora en N epochs
+
+# Optimizador
+optimizer: 'sgd'
+lr0: 0.005         # Learning Rate Inicial
+momentum: 0.9
+weight_decay: 0.0005

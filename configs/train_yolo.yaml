@@ -1,0 +1,28 @@
+# configs/train_detector.yaml
+# Configuración global de Hiperparámetros para YOLO
+
+# --- Parámetros Base ---
+model_name: 'yolov8n.pt'  # Arquitectura a entrenar (e.g., yolov8n.pt, yolo11n.pt)
+data: 'data/processed/yolo/dataset.yaml'
+
+# --- Hiperparámetros Críticos de Entrenamiento ---
+epochs: 100         # Número total de iteraciones sobre el dataset
+batch: 16           # Aumentado para aprovechar la VRAM del cluster
+imgsz: 1024         # Tamaño de resolución de las imágenes
+device: '0'         # '0' para GPU, '0,1' para Multi-GPU
+workers: 8          # Optimizado para dataloading paralelo en Ubuntu
+optimizer: 'auto'   # Optimizador: 'AdamW', 'SGD', 'auto'
+lr0: 0.01           # Tasa de aprendizaje inicial (Learning Rate)
+patience: 15        # Early Stopping: Detener si no mejora en N epochs
+
+# --- Online Data Augmentation (YOLO Native) ---
+augmentation_params:
+  fliplr: 0.5       # 50% probabilidad de flip horizontal
+  flipud: 0.25      # 25% probabilidad de flip vertical
+  hsv_h: 0.015      # Variación de tono (hue)
+  hsv_s: 0.7        # Variación de saturación
+  hsv_v: 0.4        # Variación de brillo (value)
+  mosaic: 1.0       # Mezcla 4 imágenes en 1 (mejora en objetos pequeños y oclusiones)
+  mixup: 0.1        # Superposición de imágenes
+  scale: 0.5        # Variación de escala (+/- 50%)
+  degrees: 0.0      # Rotación (0 por defecto para trigo, pero puedes ajustarlo)

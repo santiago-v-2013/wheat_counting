@@ -1,0 +1,16 @@
+# configs/dataset_coco.yaml
+# Configuración del Dataset y Dataloader para modelos Nativos de PyTorch (e.g. DETR, Faster R-CNN)
+
+dataset:
+  root_dir: 'data/processed'
+  num_classes: 2      # 0: background, 1: wheat_head
+  img_width: 1024
+  img_height: 1024
+
+dataloader:
+  batch_size: 4       # Reducido para evitar OOM
+  num_workers: 0      # ¡CRITICO en WSL! Previene el colapso del sistema por Shared Memory
+  shuffle_train: true # Mezclar el dataset en cada época
+  pin_memory: true    # Acelera la transferencia CPU -> GPU
+
+# Nota: Las intensidades de Data Augmentation se leen globalmente desde configs/augmentation.yaml

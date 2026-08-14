@@ -1,0 +1,20 @@
+# configs/train_hf.yaml
+# Configuración Principal para Modelos HuggingFace (DETR, YOLOS, Conditional-DETR)
+
+# Puedes cambiar esto a CUALQUIER modelo HF de detección!
+# Ej: 'microsoft/conditional-detr-resnet-50', 'hustvl/yolos-small'
+model: 'facebook/detr-resnet-50'
+
+dataset_cfg: 'configs/dataset_coco.yaml'
+
+# Hiperparámetros de Entrenamiento
+epochs: 100
+batch: 8           # DETR es pesado, batch=8 suele ser estable en cluster
+workers: 8         # Habilitado multiprocessing para Ubuntu
+device: 'cuda:0'   
+patience: 15       # Early Stopping: Detener si mAP no mejora en N epochs
+
+# Optimizador clásico para Transformers
+optimizer: 'adamw'
+lr0: 0.00001        # Transformers requieren LR más bajos (1e-5) para evitar NaNs
+weight_decay: 0.0001
